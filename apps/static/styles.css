@@ -1,0 +1,19 @@
+/* Add background color to the navigation bar */
+.topnav {
+    background-color: #eeeeee;
+    width: 100%;
+}
+
+/* Style the navigation links */
+.topnav a {
+    color: #000000;
+    text-align: center;
+    margin-right: 25px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Highlight active link */
+.topnav a.active {
+    color: #008CBA;
+}

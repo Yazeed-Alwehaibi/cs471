@@ -64,6 +64,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
         'DIRS': [TEMPLATE_DIR],
+        
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -74,6 +75,11 @@ TEMPLATES = [
         },
     },
 ]
+
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "apps/static")]
+
 
 WSGI_APPLICATION = 'libraryproject.wsgi.application'
 
