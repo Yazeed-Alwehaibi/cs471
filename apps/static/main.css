@@ -1,0 +1,105 @@
+/* Remove default styles */
+a {
+    text-decoration: none; /* Remove underline */
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+/* First link - Green background, red text */
+#link1 {
+    background-color: #b2f2bb;
+    color: red;
+}
+
+/* Second link - Dark gray background, yellow text */
+#link2 {
+    background-color: #4f4f4f;
+    color: yellow;
+}
+
+/* Third link - Black background, white text */
+#link3 {
+    background-color: black;
+    color: white;
+}
+
+/* Hover effects */
+#link1:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+#link2:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+#link3:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.custom-header {
+    background-color: #b2f2bb !important;
+    color: red !important;
+    padding: 10px !important;
+    text-align: left !important;
+    display: block !important;
+}
+
+
+.custom-header:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.custom-header1 {
+    background-color:rgb(124, 193, 193) !important;
+    color: white !important;
+    padding: 10px !important;
+    text-align: left !important;
+    display: block !important;
+}
+
+
+.custom-header1:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+
+/* General styling */
+.container {
+    width: 80%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling for tables */
+.styled-table, .complex-table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.styled-table th, .styled-table td,
+.complex-table th, .complex-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.styled-table th {
+    background-color: #f4f4f4;
+}
+
+/* Image styling */
+.desert-img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
