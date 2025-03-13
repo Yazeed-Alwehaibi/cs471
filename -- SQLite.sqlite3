@@ -1,0 +1,12 @@
+-- SQLite
+INSERT INTO bookmodule_book (title, author, price, edition) VALUES
+('Python Crash Course', 'Eric Matthes', 45.99, 3),
+('Clean Code', 'Robert C. Martin', 50.00, 1),
+('The Pragmatic Programmer', 'Andrew Hunt & David Thomas', 42.99, 2),
+('Machine Learning Yearning', 'Andrew Ng', 39.99, 1),
+('Deep Learning', 'Ian Goodfellow', 79.99, 2),
+('You Don’t Know JS', 'Kyle Simpson', 25.00, 1),
+('Data Science from Scratch', 'Joel Grus', 59.99, 2),
+('Fluent Python', 'Luciano Ramalho', 67.50, 3),
+('Introduction to Algorithms', 'Thomas H. Cormen', 99.99, 4),
+('Artificial Intelligence: A Modern Approach', 'Stuart Russell & Peter Norvig', 89.99, 3);
