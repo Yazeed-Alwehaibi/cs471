@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} My First Index HTML Page {% endblock title %}
+{% block content %}
+
+
+
+{% for book in books %}
+    <p>{{ book.title }}</p>
+{% endfor %}
+
+
+
+{% endblock content %}

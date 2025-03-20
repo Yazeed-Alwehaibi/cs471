@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} My First Index HTML Page {% endblock title %}
+{% block content %}
+
+<p>Total Books: {{ stats.total_books }}</p>
+<p>Total Price: ${{ stats.total_price }}</p>
+<p>Average Price: ${{ stats.average_price }}</p>
+<p>Max Price: ${{ stats.max_price }}</p>
+<p>Min Price: ${{ stats.min_price }}</p>
+
+
+
+{% endblock content %}

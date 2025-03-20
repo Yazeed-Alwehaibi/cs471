@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} My First Index HTML Page {% endblock title %}
+{% block content %}
+
+
+{% for address in student_count %}
+    <p>{{ address.city }} - {{ address.num_students }} students</p>
+{% endfor %}
+
+
+
+
+{% endblock content %}
