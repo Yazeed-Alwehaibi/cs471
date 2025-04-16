@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} My First Index HTML Page {% endblock title %}
+{% block content %}
+
+<a class="{% if url_name == 'addbook' %}active{% endif %}" href="{% url 'addbook' %}">to add a book click here</a>
+
+{% for book in books %}
+<p>{{ book.title }} - {{ book.author }} - ${{ book.price }}</p>
+<a href="{% url 'editbook' book.id %}">Edit</a>
+<a href="{% url 'deletebook' book.id %}">Delete</a>
+
+{% endfor %}
+
+
+{% endblock content %}

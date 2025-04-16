@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Book, Address
 from django.db.models import Q
 from django.db.models import Count, Sum, Avg, Max, Min
@@ -108,3 +108,40 @@ def task5(request):
 def task7(request):
     student_count = Address.objects.annotate(num_students=Count('student'))
     return render(request, 'bookmodule/task7.html', {'student_count': student_count})
+
+
+# lab 9 part 1
+def list_books_part1(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/listbooks.html', {
+        'books': books,
+        'add_url': 'add_book_part1',
+        'edit_url': 'edit_book_part1',
+        'delete_url': 'delete_book_part1',
+    })
+
+
+def add_book(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        author = request.POST['author']
+        price = request.POST['price']
+        edition = request.POST['edition']
+        Book.objects.create(title=title, author=author, price=price, edition=edition)
+    return render(request, 'bookmodule/addbook.html')
+
+
+def edit_book(request, id):
+    book = Book.objects.get(id=id)
+    if request.method == 'POST':
+        book.title = request.POST['title']
+        book.author = request.POST['author']
+        book.price = request.POST['price']
+        book.edition = request.POST['edition']
+        book.save()
+    return render(request, 'bookmodule/editbook.html', {'book': book})
+
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect('listbooks')
