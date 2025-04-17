@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} My First Index HTML Page {% endblock title %}
+{% block content %}
+
+<h2>Number of Students in Each Department</h2>
+<ul>
+  {% for dept in number_of_students %}
+    <li>{{ dept.name }} - {{ dept.num_students }} students</li>
+  {% endfor %}
+</ul>
+
+
+{% endblock content %}

@@ -21,4 +21,20 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
+# lab 9
+class card(models.Model):
+    card_number = models.IntegerField()
+
     
+class department(models.Model):
+    name = models.CharField(max_length=100)
+
+class course(models.Model):
+    title = models.CharField(max_length=100)
+    code = models.IntegerField()
+    
+class Student2(models.Model):
+    name = models.CharField(max_length=100)
+    card_number = models.OneToOneField(card, on_delete=models.PROTECT)
+    department = models.ForeignKey(department, on_delete=models.CASCADE, null=True)
+    course = models.ManyToManyField(course)

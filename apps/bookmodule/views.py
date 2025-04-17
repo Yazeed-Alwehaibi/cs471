@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Book, Address
+from .models import Book, Address, department, Student2,card,course
 from django.db.models import Q
 from django.db.models import Count, Sum, Avg, Max, Min
 
@@ -110,7 +110,40 @@ def task7(request):
     return render(request, 'bookmodule/task7.html', {'student_count': student_count})
 
 
-# lab 9 part 1
+
+# lab 9
+def number_of_students_department(request):
+    num_of_students = department.objects.annotate(num_students=Count('student2'))
+    return render(request, 'bookmodule/l9t1.html', {'number_of_students': num_of_students})
+
+
+def number_of_students_course(request): 
+    num_of_students = course.objects.annotate(num_students=Count('student2'))
+    return render(request, 'bookmodule/l9t2.html', {'number_of_students': num_of_students})
+
+
+
+def oldest(request):
+    departments = department.objects.annotate(oldest_student_id=Min('student2__id'))
+    
+    department_with_oldest_student = []
+    for dept in departments:
+        oldest_student = Student2.objects.get(id=dept.oldest_student_id)
+        department_with_oldest_student.append({
+            'department': dept,
+            'oldest_student': oldest_student
+        })
+    
+    return render(request, 'bookmodule/l9t3.html', {'department_with_oldest_student': department_with_oldest_student})
+
+def descending(request):
+    departments = department.objects.annotate(num_students=Count('student2')).filter(num_students__gt=2).order_by('-num_students')
+    return render(request, 'bookmodule/l9t4.html', {'departments': departments})
+
+
+
+
+# lab 10 part 1
 def list_books_part1(request):
     books = Book.objects.all()
     return render(request, 'bookmodule/listbooks.html', {
@@ -145,3 +178,7 @@ def delete_book(request, id):
     book = Book.objects.get(id=id)
     book.delete()
     return redirect('listbooks')
+
+
+
+
