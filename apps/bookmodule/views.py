@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Book, Address, department, Student2,card,course
 from django.db.models import Q
 from django.db.models import Count, Sum, Avg, Max, Min
+from .forms import bookForm
 
 
 def index(request):
@@ -181,4 +182,41 @@ def delete_book(request, id):
 
 
 
+# lab 10 part 2
 
+def list_books_part2(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/listbooks_part2.html', {'books': books})
+
+
+def add_book_part2(request):
+    if request.method == "POST":
+        form = bookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listbooks_part2')
+    else:
+        form = bookForm()
+    return render(request, 'bookmodule/addbook_part2.html', {'form': form})
+    
+
+def edit_book_part2(request, id):
+    book = get_object_or_404(Book, id=id)
+
+    if request.method == "POST":
+        form = bookForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect('listbooks_part2')
+    else:
+        form = bookForm(instance=book)
+
+    return render(request, 'bookmodule/editbook_part2.html', {'form': form})
+
+
+def delete_book_part2(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect('listbooks_part2')
+
+    

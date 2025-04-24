@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} My First Index HTML Page {% endblock title %}
+{% block content %}
+
+<h1>Add a New Book</h1>
+
+<h2>Edit Book</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'listbooks_part2' %}">Back to list</a>
+
+{% endblock content %}
